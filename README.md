@@ -19,9 +19,6 @@ set environment variables:
 - `mavica-set-metadata` - set metadata on image or video file
 - `mavica-portrait` - fix portrait image
 
-### Running on its own
-`nix run github:jbwar22/mavica-scripts`
-
 ### Add to your flake
 ```
 mavica-scripts = {
@@ -31,4 +28,4 @@ mavica-scripts = {
 ```
 
 ### Without flakes
-packages can be found in ./package
+see package.nix
