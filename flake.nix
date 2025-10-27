@@ -11,6 +11,7 @@
       mavica-ingest = pkgs.callPackage ./package/ingest.nix {
         inherit mavica-set-metadata mavica-portrait;
       };
+      default = mavica-ingest;
     };
   };
 }
