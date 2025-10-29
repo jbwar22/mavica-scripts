@@ -13,12 +13,12 @@ set environment variables:
 - `MAVICA_SCRIPTS_MODEL` - camera model
 - `MAVICA_SCRIPTS_DEVICE` - floppy drive device in /dev
 
-## Nix
-### Packages
+## Package Binaries
 - `mavica-ingest` - automatic ingest script
-- `mavica-set-metadata` - set metadata on image or video file
-- `mavica-portrait` - fix portrait image
+- `mavica-set-metadata` - set metadata on image or video file (available during ingest)
+- `mavica-portrait` - fix portrait image (available during ingest)
 
+## Nix
 ### Add to your flake
 ```
 mavica-scripts = {
