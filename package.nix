@@ -17,6 +17,7 @@ stdenv.mkDerivation (let
   ingest-inputs = [
     bash
     coreutils
+    exiftool
     findutils
     gawk
     immich-cli

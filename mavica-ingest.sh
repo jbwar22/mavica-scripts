@@ -4,8 +4,18 @@ echo mounting floppy...
 mountpoint=$(udisksctl mount -b "$MAVICA_SCRIPTS_DEVICE" | awk -F' ' '{print $4}')
 dumpdir=$(mktemp -d)
 pushd "$mountpoint" &> /dev/null || exit
+echo "check datetime"
+echo "if datetime"
+echo "copy files elsewhere if needed"
+echo "^D when done, to answer prompt"
+bash
+echo "need to fix timezone? [y/n]"
+read -r fixmeta
+if [[ "$fixmeta" != "y" && "$fixmeta" != "n" ]]; then
+    exit
+fi
 echo adding metadata...
-find . -maxdepth 1 -mindepth 1 \( -iname "*.JPG" -o -iname "*.MPG" \) -exec mavica-set-metadata "{}" "$dumpdir" \;
+find . -maxdepth 1 -mindepth 1 \( -iname "*.JPG" -o -iname "*.MPG" \) -exec mavica-set-metadata "{}" "$dumpdir" "$fixmeta" \;
 popd &> /dev/null || exit
 pushd "$dumpdir" &> /dev/null || exit
 echo "fix portrait files"
