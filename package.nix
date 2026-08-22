@@ -33,7 +33,7 @@ stdenv.mkDerivation (let
   ];
 in {
   pname = "mavica-ingest";
-  version = "1.1.0";
+  version = "1.2.0";
   src = ./.;
   buildInputs = ingest-inputs ++ set-metadata-inputs ++ portrait-inputs;
   nativeBuildInputs = [ makeWrapper ];
@@ -52,6 +52,8 @@ in {
     cp mavica-ingest.sh $out/bin/mavica-ingest
     wrapProgram $out/bin/mavica-ingest \
       --prefix PATH : ${lib.makeBinPath (ingest-inputs ++ [ "$out/bin/helpers" ])}
+
+    cp mavica-help.sh $out/bin/helpers/bin/mavica-help
   '';
   meta = {
     description = "mavica scripts: set metadata, fix, and ingest ingest images from mavica camera to immich";
